@@ -16,7 +16,7 @@
                BlueprintIdentifier = "36BBB09014CEE19300250B98"
                BuildableName = "OpenNI.framework"
                BlueprintName = "OpenNI"
-               ReferencedContainer = "container:OpenNI-Cocoa.xcodeproj">
+               ReferencedContainer = "container:OpenNI.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

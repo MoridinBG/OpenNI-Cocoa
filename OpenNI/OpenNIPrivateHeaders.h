@@ -9,6 +9,14 @@
 #ifndef OpenNICocoa_OpenNIPrivateHeaders_h
 #define OpenNICocoa_OpenNIPrivateHeaders_h
 
+@interface OpenNI (Internals)
+
+- (void) performSelector:(SEL)_selector onDelegate:(id)_delegate withObject:(id)_object;
+- (void) performSelector:(SEL)_selector onDelegates:(NSSet *)_delegates withObject:(id)_object;
+
+- (NSString*) stringForGestureType:(GestureType)_gestureType;
+
+@end
 
 typedef enum OpenNiState
 {
@@ -56,16 +64,6 @@ void XN_CALLBACK_TYPE Hand_Lost(xn::HandsGenerator &generator, XnUserID user, Xn
 void XN_CALLBACK_TYPE Pose_Detected(xn::PoseDetectionCapability &pose, const XnChar* strPose, XnUserID nId, void *pCookie);
 void XN_CALLBACK_TYPE Calibration_Start(xn::SkeletonCapability &capability, XnUserID nId, void *pCookie);
 void XN_CALLBACK_TYPE Calibration_End(xn::SkeletonCapability &capability, XnUserID nId, XnBool bSuccess, void *pCookie);
-
-
-@interface OpenNI (Internals)
-
--(void)performSelector:(SEL)_selector onDelegate:(id)_delegate withObject:(id)_object;
--(void)performSelector:(SEL)_selector onDelegates:(NSSet *)_delegates withObject:(id)_object;
-
--(NSString*)stringForGestureType:(GestureType)_gestureType;
-
-@end
 
 
 #endif

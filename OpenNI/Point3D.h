@@ -9,17 +9,18 @@
 #import <Foundation/Foundation.h>
 #import <XnTypes.h>
 
-@interface Point3D : NSObject{
-    float x,y,z;
+@interface Point3D : NSObject
+{
+    float _x, _y, _z;
 }
 
 @property (nonatomic, assign) float x,y,z;
 
++ (Point3D*) pointWithXnPoint:(const XnPoint3D*) point;
++ (Point3D*) pointWithX:(float)x Y:(float)y Z:(float)z;
 
--(id)initWithX:(float)_x Y:(float)_y Z:(float)_z;
--(id)initWithXnPoint:(XnPoint3D*)_point;
-+(Point3D*)pointWithXnPoint:(const XnPoint3D*)_point;
-+(Point3D*)pointWithX:(float)_x Y:(float)_y Z:(float)_z;
--(const XnPoint3D)xnPoint3D;
+- (id) initWithX:(float)x Y:(float)y Z:(float)z;
+- (id) initWithXnPoint:(const XnPoint3D*)point;
+- (const XnPoint3D) xnPoint3D;
 
 @end

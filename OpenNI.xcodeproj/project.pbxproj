@@ -234,10 +234,10 @@
 		36BBB08714CEE19300250B98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0440;
 				ORGANIZATIONNAME = LoFT;
 			};
-			buildConfigurationList = 36BBB08A14CEE19300250B98 /* Build configuration list for PBXProject "OpenNI-Cocoa" */;
+			buildConfigurationList = 36BBB08A14CEE19300250B98 /* Build configuration list for PBXProject "OpenNI" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -326,6 +326,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -356,6 +358,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -448,7 +452,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		36BBB08A14CEE19300250B98 /* Build configuration list for PBXProject "OpenNI-Cocoa" */ = {
+		36BBB08A14CEE19300250B98 /* Build configuration list for PBXProject "OpenNI" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				36BBB0A414CEE19300250B98 /* Debug */,

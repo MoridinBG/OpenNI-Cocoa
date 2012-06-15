@@ -9,52 +9,54 @@
 #import "Point3D.h"
 
 @implementation Point3D
-@synthesize x,y,z;
+@synthesize x = _x;
+@synthesize y = _y;
+@synthesize z = _z;
 
 
--(id)initWithX:(float)_x Y:(float)_y Z:(float)_z
+- (id) initWithX:(float)x Y:(float)y Z:(float)z
 {
     if (self = [super init])
     {
-        self.x = _x;
-        self.y = _y;
-        self.z = _z;
+        _x = x;
+        _y = y;
+        _z = z;
     }
     
     return self;
 }
 
--(id)initWithXnPoint:(XnPoint3D*)_point
+- (id) initWithXnPoint:(const XnPoint3D*)point
 {
-    return [self initWithX:_point->X Y:_point->Y Z:_point->Z];
+    return [self initWithX:point->X Y:point->Y Z:point->Z];
 }
 
 
-+(Point3D*)pointWithX:(float)_x Y:(float)_y Z:(float)_z
++ (Point3D*) pointWithX:(float)x Y:(float)y Z:(float)z
 {
-    return [[[Point3D alloc] initWithX:_x Y:_y Z:_z] autorelease];
+    return [[Point3D alloc] initWithX:x Y:y Z:z];
 }
 
 
-+(Point3D*)pointWithXnPoint:(const XnPoint3D*)_point
-{    
-    return [[[Point3D alloc] initWithXnPoint:_point] autorelease];
++ (Point3D*) pointWithXnPoint:(const XnPoint3D*)point
+{
+    return [[Point3D alloc] initWithXnPoint:point];
 }
 
 
--(const XnPoint3D)xnPoint3D
+- (const XnPoint3D) xnPoint3D
 {
     XnPoint3D point;
-    point.X = x;
-    point.Y = y;
-    point.Z = z;
+    point.X = _x;
+    point.Y = _y;
+    point.Z = _z;
     
     return point;
 }
 
--(NSString*)description
+- (NSString*) description
 {
-    return [NSString stringWithFormat:@"( %f, %f, %f )", x, y, z];
+    return [NSString stringWithFormat:@"( %f, %f, %f )", _x, _y, _z];
 }
 
 @end

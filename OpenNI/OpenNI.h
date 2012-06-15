@@ -18,7 +18,8 @@
 
 #import "Point3D.h"
 
-typedef enum {
+typedef enum
+{
     GestureTypeClick,
     GestureTypeWave,
     GestureTypeSwipeLeft,
@@ -31,59 +32,60 @@ typedef enum {
 
 @required
 
--(void)openNiInitCompleteWithStatus:(NSNumber *)_status andError:(NSError*)_error;
+- (void) openNiInitCompleteWithStatus:(NSNumber *)status andError:(NSError*)error;
 
 @optional
 
--(void)frameReady;
+- (void) frameReady;
 
--(void)userDidEnterWithId:(NSNumber *)_nId;
--(void)userDidLeaveWithId:(NSNumber *)_nId;
+- (void) userDidEnterWithId:(NSNumber *)nId;
+- (void) userDidLeaveWithId:(NSNumber *)nId;
 
--(void)handDidBeginAt:(NSDictionary *)_point forUserId:(NSNumber *)_nId;
--(void)handDidMoveAt:(NSDictionary *)_point forUserId:(NSNumber *)_nId;
--(void)handDidStopForUserId:(NSNumber *)_nId;
+- (void) handDidBeginAt:(NSDictionary *)point forUserId:(NSNumber *)nId;
+- (void) handDidMoveAt:(NSDictionary *)point forUserId:(NSNumber *)nId;
+- (void) handDidStopForUserId:(NSNumber *)nId;
 
--(void)gestureRecognizedAt:(NSDictionary*)_point withName:(NSString *)_gestureName;
+- (void) gestureRecognizedAt:(NSDictionary*)point withName:(NSString *)gestureName;
 
 @end
 
 @interface OpenNI : NSObject
 {
     //Content Variables
-    const XnDepthPixel *depthMap;
-    const XnUInt8 *rgb;
-    const XnLabel *userLabelsMap;
+    const XnDepthPixel *_depthMap;
+    const XnUInt8 *_rgb;
+    const XnLabel *_userLabelsMap;
     
-    xn::DepthMetaData depthMetaData;
-    xn::ImageMetaData imageMetaData;
-    xn::SceneMetaData sceneMetaData;
+    xn::DepthMetaData _depthMetaData;
+    xn::ImageMetaData _imageMetaData;
+    xn::SceneMetaData _sceneMetaData;
     
-    CGSize fulleResolution, croppedResolution, offset;
+    CGSize _fullResolution, _croppedResolution, _offset;
 }
 
 @property (readonly) const XnDepthPixel *depthMap;
 @property (readonly) const XnUInt8 *rgb;
 @property (readonly) const XnLabel *userLabelsMap;
-@property (readonly) CGSize fulleResolution, croppedResolution, offset;
+@property (readonly) CGSize fullResolution, croppedResolution, offset;
 
-+(OpenNI*)instance;
--(void)addDelegate:(id)_delegate;
--(void)removeDelegate:(id)_delegate;
++ (OpenNI*) instance;
+- (void) initOpenNiWithConfigFile:(NSString*)pathToConfigFile;
+- (void) initOpenNi;
+- (void) dealloc;
 
-//OpenNI Methods
--(void)initOpenNiWithConfigFile:(NSString*)_pathToConfigFile;
--(void)initOpenNi;
--(XnStatus)startGeneratingFrames;
--(void)stopGeneratingFrames;
+- (void) addDelegate:(id)delegate;
+- (void) removeDelegate:(id)delegate;
 
--(void)startRecordingToFile:(NSString*)_filePath;
--(void)stopRecording;
+- (XnStatus) startGeneratingFrames;
+- (void) stopGeneratingFrames;
 
--(void)startTrackingHandAtPosition:(Point3D*)_point;
--(void)stopTrakcingHandWithUserId:(XnUserID)_userId;
+- (void) startRecordingToFile:(NSString*)filePath;
+- (void) stopRecording;
 
--(void)startDetectingGesture:(GestureType)_gesture;
--(void)stopDetectingGesture:(GestureType)_gesture;
+- (void) startTrackingHandAtPosition:(Point3D*)point;
+- (void) stopTrakcingHandWithUserId:(XnUserID)userId;
+
+- (void) startDetectingGesture:(GestureType)gesture;
+- (void) stopDetectingGesture:(GestureType)gesture;
 
 @end
